@@ -1,0 +1,183 @@
+/* 🌈 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🔹 Background Styling */
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🔹 Left Card */
+#f1 {
+  background: linear-gradient(160deg, #007bff, #6610f2);
+  color: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 380px;
+  animation: slideIn 1s ease;
+}
+
+#f1 .card-body p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* 🔹 Login Form */
+#login {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#login input {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* 🔹 Hover Effects */
+#login input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+#login button {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+#login button:hover {
+  background: #28a745d0;
+}
+
+/* 🔹 Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .container-fluid {
+    padding: 15px;
+  }
+
+  #f1 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #f1 {
+    width: 90%;
+    max-width: none;
+  }
+
+  #login {
+    width: 90%;
+  }
+
+  .card-img-top {
+    height: 150px !important;
+  }
+
+  #login h4 {
+    font-size: 1.2rem;
+  }
+
+  #login button {
+    font-size: 0.9rem;
+  }
+
+  #login input {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+#signup {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#signup input {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+#signup input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+#signup button {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+#signup button:hover {
+  background: #28a745d0;
+}
+
+/* 🔹 Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 992px) {
+  .container-fluid {
+    padding: 20px;
+  }
+
+  #f1 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #f1 {
+    width: 90%;
+    max-width: none;
+  }
+
+  #signup {
+    width: 90%;
+  }
+
+  .card-img-top {
+    height: 150px !important;
+  }
+
+  #signup h3 {
+    font-size: 1.3rem;
+  }
+
+  #signup button {
+    font-size: 0.9rem;
+  }
+
+  #signup input {
+    font-size: 0.9rem;
+  }
+}

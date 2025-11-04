@@ -1,0 +1,117 @@
+/* Background with gradient */
+.full-bg {
+
+  color: white;
+  padding-bottom: 20px; /* space for bottom bar */
+}
+.gap-2{
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+}
+.gap-2 div{
+    width: 25%;
+}
+/* Navbar gradient color */
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #0056b3, #6610f2);
+
+}
+#MenuContent{
+    background-color: #0968ce;
+}
+
+/* Icon button design */
+.icon-btn {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background-color: white;
+  color: #0056b3;
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+/* 🔹 Mobile Bottom Bar Styling */
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #0056b3, #6610f2);
+    padding: 10px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .icon-btn {
+    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Container for bottom menu */
+#MenuContent {
+  background-color: #007bff; /* blue background */
+  border-radius: 10px;
+  padding: 8px 0;
+  position: relative;
+}
+
+/* Flex layout for even spacing */
+.menu-buttons {
+  width: 100%;
+  gap: 10px;
+}
+
+/* Icon button styles */
+.icon-btn {
+  font-size: 1.4rem;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+  background-color: #ffffff22;
+  transform: scale(1.1);
+}
+
+/* 🔹 Mobile sticky bottom bar */
+@media (max-width: 768px) {
+  #MenuContent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #007bff;
+    z-index: 1000;
+    border-radius: 0;
+  }
+
+  .menu-buttons {
+    justify-content: space-around;
+  }
+
+  .icon-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+}
+
