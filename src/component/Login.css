@@ -1,17 +1,17 @@
-/* 🌈 Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 🔹 Background Styling */
+
 body {
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
 }
 
-/* 🔹 Left Card */
+
 #f1 {
   background: linear-gradient(160deg, #007bff, #6610f2);
   color: white;
@@ -26,7 +26,7 @@ body {
   line-height: 1.4;
 }
 
-/* 🔹 Login Form */
+
 #login {
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -37,7 +37,7 @@ body {
   padding: 10px;
 }
 
-/* 🔹 Hover Effects */
+
 #login input:focus {
   border-color: #007bff;
   box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
@@ -66,7 +66,7 @@ body {
   }
 }
 
-/* 📱 Responsive Design */
+/* Responsive Design */
 @media (max-width: 992px) {
   .container-fluid {
     padding: 15px;
@@ -144,7 +144,7 @@ body {
   }
 }
 
-/* 📱 Responsive */
+/* Responsive */
 @media (max-width: 992px) {
   .container-fluid {
     padding: 20px;
