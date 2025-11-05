@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../Images/logo.png";
 import IndexHame from "./IndexHame";
-
+import { Link } from "react-router-dom";
 const CLIENT_ID =
   "1043646008179-hq3943hpnrvlornn1msg4cnvq0bdf5cl.apps.googleusercontent.com";
 
@@ -192,13 +192,14 @@ function SignUp() {
               <div className="mb-3 text-end small">
                 <label>
                   Already have an account?{" "}
-                  <a
-                    href="#"
-                    style={{ textDecoration: "none", cursor: "pointer" }}
-                    onClick={() => navigate("/Login")}
-                  >
-                    Login
-                  </a>
+                
+<label>
+  <Link
+    to="/Login"
+    style={{ textDecoration: "none", cursor: "pointer" }}>
+    Login
+  </Link>
+</label>
                 </label>
               </div>
 
