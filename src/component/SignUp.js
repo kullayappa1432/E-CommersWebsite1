@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import logo from "../Images/logo.png";
 import IndexHame from "./IndexHame";
 import { Link } from "react-router-dom";
@@ -23,7 +22,6 @@ function SignUp() {
   const mail = useRef();
   const password = useRef();
   const password1 = useRef();
-  const navigate = useNavigate();
 
   const handleCredentialResponse = (response) => {
     const data = decodeJwtResponse(response.credential);
