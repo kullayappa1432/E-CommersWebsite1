@@ -20,13 +20,13 @@ function CashOnDilivery() {
       window.location.reload();
     }
   }, []);
-  // ✅ Product details from localStorage
+  // Product details from localStorage
   let title = localStorage.getItem("title");
   let image = localStorage.getItem("productimage");
   let price = localStorage.getItem("price");
-  let userEmail = localStorage.getItem("email"); // 👈 after login/signup
+  let userEmail = localStorage.getItem("email"); 
 
-  // ✅ Validation
+  // Validation
   const validateForm = () => {
     let newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
@@ -41,7 +41,6 @@ function CashOnDilivery() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ✅ Handle input
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -55,7 +54,7 @@ function CashOnDilivery() {
       OrderDetails: [formData],
     };
 
-    const response = await fetch("http://localhost:5000/cashorder", {
+    const response = await fetch("https://e-commersesalesproject.onrender.com/cashorder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
