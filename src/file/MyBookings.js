@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Header from "../component/Header";
 
 function MyBookings() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   // Get logged-in user's email from localStorage
   const email = localStorage.getItem("email");
 
-  // Fetch orders from backend
-  const fetchOrders = async () => {
+  // ✅ Use useCallback to make fetchOrders stable
+  const fetchOrders = useCallback(async () => {
     try {
       if (!email) {
         alert("You need to log in to view your orders.");
@@ -18,7 +17,7 @@ function MyBookings() {
       }
 
       const response = await fetch("https://e-commersesalesproject.onrender.com/orders", {
-        method: "POST", // ✅ Must be POST (backend expects POST)
+        method: "POST", // ✅ Must be POST
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }), // ✅ Send email in body
       });
@@ -30,25 +29,30 @@ function MyBookings() {
     } finally {
       setLoading(false);
     }
+  }, [email]); // ✅ dependency is stable (email)
+
+  // ✅ Cancel order function
+  const cancelOrder = async (date) => {
+    try {
+      const email = localStorage.getItem("email");
+      const response = await fetch("https://e-commersesalesproject.onrender.com/cancel", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, Date: date }),
+      });
+
+      const respData = await response.json();
+      alert(JSON.stringify(respData));
+      fetchOrders(); // ✅ safely calls the stable function
+    } catch (error) {
+      console.error("Error cancelling order:", error);
+    }
   };
 
-let cancelorder=async(date)=>{
-  let email=localStorage.getItem("email");
- 
-  let response=await fetch("https://e-commersesalesproject.onrender.com/cancel",{
-    method:'post',
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({email,Date:date})
-  })
-  let respdata=await response.json();
-alert(JSON.stringify(respdata));
-fetchOrders();
-}
-
- useEffect(() => {
-  fetchOrders();
-}, [fetchOrders]);
-
+  // ✅ useEffect now works perfectly
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders]);
 
   return (
     <div>
@@ -69,10 +73,7 @@ fetchOrders();
                 key={order._id || index}
                 className="col-12 col-sm-6 col-md-4 d-flex justify-content-center"
               >
-                <div
-                  className="card shadow-sm p-3"
-                  style={{ width: "100%", borderRadius: "15px" }}
-                >
+                <div className="card shadow-sm p-3" style={{ width: "100%", borderRadius: "15px" }}>
                   <img
                     src={order.Image}
                     alt={order.Title}
@@ -85,11 +86,8 @@ fetchOrders();
                     }}
                   />
                   <div className="card-body text-center text-md-start">
-                    <h5 className="card-title text-dark fw-bold">
-                      {order.Title}
-                    </h5>
+                    <h5 className="card-title text-dark fw-bold">{order.Title}</h5>
                     <p className="text-success fw-bold">₹{order.Price}</p>
-
                     <p>
                       <strong>Payment Type:</strong> {order.PaymentType}
                     </p>
@@ -102,7 +100,6 @@ fetchOrders();
                     </p>
 
                     {order.OrderDetails &&
-                      order.OrderDetails.length > 0 &&
                       order.OrderDetails.map((item, idx) => (
                         <div key={idx} className="text-start mb-2">
                           <p>
@@ -118,16 +115,13 @@ fetchOrders();
                       ))}
                   </div>
                   <div className="text-end">
-                    <button className="btn btn-danger" onClick={()=>
-                      {
-                        
-                        cancelorder(order.Date);
-
-                      }
-                    }>
-                     Cancel
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => cancelOrder(order.Date)}
+                    >
+                      Cancel
                     </button>
-                    </div>
+                  </div>
                 </div>
               </div>
             ))}
