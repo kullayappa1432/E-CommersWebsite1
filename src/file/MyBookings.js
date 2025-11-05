@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../component/Header";
 
 function MyBookings() {
@@ -45,9 +45,10 @@ alert(JSON.stringify(respdata));
 fetchOrders();
 }
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
+ useEffect(() => {
+  fetchOrders();
+}, [fetchOrders]);
+
 
   return (
     <div>
