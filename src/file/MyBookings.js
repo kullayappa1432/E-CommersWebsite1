@@ -17,7 +17,7 @@ function MyBookings() {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/orders", {
+      const response = await fetch("https://e-commersesalesproject.onrender.com/orders", {
         method: "POST", // ✅ Must be POST (backend expects POST)
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }), // ✅ Send email in body
@@ -35,7 +35,7 @@ function MyBookings() {
 let cancelorder=async(date)=>{
   let email=localStorage.getItem("email");
  
-  let response=await fetch("http://localhost:5000/cancel",{
+  let response=await fetch("https://e-commersesalesproject.onrender.com/cancel",{
     method:'post',
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({email,Date:date})
